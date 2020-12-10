@@ -36,3 +36,6 @@ ssh $remotehost mkdir -p .ssh
 
 # copy public key
 Get-Content $i | ssh $remotehost 'cat >> .ssh/authorized_keys'
+
+# verify permissions are set properly
+ssh $remotehost 'chmod go-w ~ && chmod 700 ~/.ssh && chmod 600 ~/.ssh/authorized_keys'
